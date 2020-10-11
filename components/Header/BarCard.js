@@ -28,11 +28,11 @@ const CardStyle = styled.section`
   }
 `;
 
-const BarCard = () => {
+const BarCard = ({language}) => {
   return (
     <>
       <CardStyle>
-        <div className="card-text">JavaScript</div>
+        <div className="card-text">{language}</div>
         <button className="x-remove"></button>
       </CardStyle>
     </>

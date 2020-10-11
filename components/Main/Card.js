@@ -28,7 +28,7 @@ const BigCard = styled.section`
     left: 0;
     background-color: var(--MainCyan);
     opacity: 0;
-    transition: .5s ease;
+    transition: 0.5s ease;
   }
   &:hover {
     &::before {
@@ -53,21 +53,22 @@ const FilterList = styled.div`
   gap: 20px;
 `;
 
-const Card = () => {
+const Card = ({ data }) => {
+  const { languages } = data;
   return (
     <BigCard>
       <div className="img-text-frame">
         <PhotoStyle>
-          <img src="/images/photosnap.svg" alt="" srcset="" />
+          <img src={data.logo} alt={`Logo of the company ${data.company}`} />
         </PhotoStyle>
 
-        <CardText/>
+        <CardText data={data} />
       </div>
 
       <FilterList>
-        <BarCard />
-        <BarCard />
-        <BarCard />
+        {languages.map((language, index) => (
+          <BarCard language={language} key={index} />
+        ))}
       </FilterList>
     </BigCard>
   );

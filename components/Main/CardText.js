@@ -49,19 +49,23 @@ const TextFrame = styled.div`
   }
 `;
 
-const CardText = () => {
+const CardText = ({ data }) => {
   return (
     <TextFrame>
       <div className="mini-text-upper">
-        <h3>Photosnap</h3>
-        <h3 className="circle-text">NEW!</h3>
-        <h3 className="circle-text m-10 black-color">FEATURED</h3>
+        <h3>{data.company}</h3>
+        {data.new ? (
+          <h3 className="circle-text">NEW!</h3>
+        ) : null}
+        {data.featured ? (
+          <h3 className="circle-text m-10 black-color">FEATURED</h3>
+        ) : null}
       </div>
-      <h1>Senior Frontend Developer</h1>
+      <h1>{data.position}</h1>
       <div className="mini-text-bottom">
-        <p className="point-after">1d ago</p>
-        <p className="point-after">Full Time</p>
-        <p>USA only</p>
+        <p className="point-after">{data.postedAt}</p>
+        <p className="point-after">{data.contract}</p>
+        <p>{data.location}</p>
       </div>
     </TextFrame>
   );

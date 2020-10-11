@@ -44,8 +44,11 @@ export default function Home() {
       <Header />
       <div className="section">
         <BarFiltering/>
-
+        {/* MAIN */}
         <Card/>
+        <Card/>
+        <Card/>
+
       </div>
     </MainFrame>
   );

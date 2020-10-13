@@ -88,7 +88,7 @@ const Hr = styled.hr`
 `;
 
 const Card = ({ data }) => {
-  const { languages } = data;
+  const { languages, role, level } = data;
   return (
     <BigCard>
       <div className="img-text-frame">
@@ -102,8 +102,10 @@ const Card = ({ data }) => {
       <Hr />
 
       <FilterList>
+        <BarCard item={role} display="none" cursor="pointer"/>
+        <BarCard item={level} display="none" cursor="pointer"/>
         {languages.map((language, index) => (
-          <BarCard language={language} key={index} />
+          <BarCard language={language} item={language} key={index} display="none" cursor="pointer"/>
         ))}
       </FilterList>
     </BigCard>

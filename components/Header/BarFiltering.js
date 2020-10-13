@@ -42,7 +42,7 @@ const BarFiltering = () => {
   return (
     <BarStyled>
       <div className="cards-flex">
-        <BarCard />
+        <BarCard item="JavaScript"/>
         <BarCard />
       </div>
       <div className="text-clear">Clear</div>

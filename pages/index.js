@@ -61,6 +61,3 @@ export default function Home() {
   );
 }
 
-/* Mobile Responsive */
-// @media screen and (max-width: 375px) {
-// }

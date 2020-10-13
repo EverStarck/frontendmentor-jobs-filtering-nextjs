@@ -4,6 +4,7 @@ const CardStyle = styled.section`
   display: flex;
   width: min-content;
   border-radius: 5px;
+  cursor: ${(props) => props.cursor};
   background: var(--Light-Grayish-Cyan-BG);
   /* margin-right: 15px; */
   .card-text {
@@ -13,7 +14,7 @@ const CardStyle = styled.section`
     font-weight: 700;
   }
   .x-remove {
-    /* display: none */
+    display: ${(props) => props.display};
     border: none;
     border-radius: 0 5px 5px 0;
     width: 35px;
@@ -28,11 +29,12 @@ const CardStyle = styled.section`
   }
 `;
 
-const BarCard = ({ language }) => {
+const BarCard = ({ item, display="block", cursor="text" }) => {
   return (
     <>
-      <CardStyle>
-        <div className="card-text">{language}</div>
+      <CardStyle display={display} cursor={cursor} item={item}>
+        {}
+        <div className="card-text">{item}</div>
         <button className="x-remove"></button>
       </CardStyle>
     </>

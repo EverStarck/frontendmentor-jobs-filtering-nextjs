@@ -3,6 +3,7 @@ import BarCard from "./BarCard";
 
 const BarStyled = styled.nav`
   /* background: green; */
+  max-height: 200px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -12,6 +13,7 @@ const BarStyled = styled.nav`
   background: #fff;
   box-shadow: var(--Shadow);
   transform: translateY(-50%);
+  overflow:auto;
   .cards-flex {
     display: flex;
     /* background: red; */
@@ -27,27 +29,23 @@ const BarStyled = styled.nav`
     font-weight: 700;
     cursor: pointer;
     &:hover {
-        border-bottom: 1px solid var(--MainCyan);
+      border-bottom: 1px solid var(--MainCyan);
     }
+  }
+  /* Mobile Responsive */
+  @media screen and (max-width: 375px) {
+    max-height: 300px;
   }
 `;
 
 const BarFiltering = () => {
   return (
     <BarStyled>
-     <div className="cards-flex">
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-      <BarCard />
-     </div>
-     <div className="text-clear">Clear</div>
-
+      <div className="cards-flex">
+        <BarCard />
+        <BarCard />
+      </div>
+      <div className="text-clear">Clear</div>
     </BarStyled>
   );
 };

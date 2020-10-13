@@ -12,7 +12,7 @@ const BigCard = styled.section`
   min-height: 150px;
   max-width: 100%;
   padding: 20px 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   box-shadow: var(--Shadow);
   border-radius: 5px;
   position: relative;
@@ -39,11 +39,34 @@ const BigCard = styled.section`
     display: flex;
     gap: 20px;
   }
+
+  /* Mobile Responsive */
+  @media screen and (max-width: 768px) {
+    padding: 20px 20px;
+    margin-bottom: 35px;
+    .img-text-frame {
+      flex-direction: column;
+    }
+
+    /* FilterList in the bottom */
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const PhotoStyle = styled.div`
   align-self: center;
   /* background: red; */
+  /* Mobile Responsive */
+  @media screen and (max-width: 768px) {
+    align-self: flex-start;
+    width: 50px;
+    transform: translateY(-75%);
+    position: absolute;
+    img {
+      width: 50px;
+    }
+  }
 `;
 
 const FilterList = styled.div`
@@ -51,6 +74,17 @@ const FilterList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+`;
+
+const Hr = styled.hr`
+  display: none;
+  /* Mobile Responsive */
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    color: var(--Light-Grayish-Cyan);
+    margin-bottom: 17px;
+  }
 `;
 
 const Card = ({ data }) => {
@@ -64,6 +98,8 @@ const Card = ({ data }) => {
 
         <CardText data={data} />
       </div>
+
+      <Hr />
 
       <FilterList>
         {languages.map((language, index) => (

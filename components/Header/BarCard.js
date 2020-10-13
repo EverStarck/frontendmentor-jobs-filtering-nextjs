@@ -7,8 +7,8 @@ const CardStyle = styled.section`
   background: var(--Light-Grayish-Cyan-BG);
   /* margin-right: 15px; */
   .card-text {
-    font-size: 14px;
-    padding: 10px;
+    font-size: clamp(12px,2vw,14px);
+    padding: clamp(5px,2vw,10px);
     color: var(--MainCyan);
     font-weight: 700;
   }
@@ -28,7 +28,7 @@ const CardStyle = styled.section`
   }
 `;
 
-const BarCard = ({language}) => {
+const BarCard = ({ language }) => {
   return (
     <>
       <CardStyle>

@@ -28,6 +28,10 @@ const MainFrame = styled.div`
   .section {
     max-width: 80vw;
     margin: 0 auto;
+    /* Mobile Responsive */
+    @media screen and (max-width: 375px) {
+      max-width: 90vw;
+    }
   }
 `;
 
@@ -56,3 +60,7 @@ export default function Home() {
     </MainFrame>
   );
 }
+
+/* Mobile Responsive */
+// @media screen and (max-width: 375px) {
+// }

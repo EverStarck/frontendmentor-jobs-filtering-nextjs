@@ -13,7 +13,7 @@ const BarStyled = styled.nav`
   background: #fff;
   box-shadow: var(--Shadow);
   transform: translateY(-50%);
-  overflow:auto;
+  overflow: auto;
   .cards-flex {
     display: flex;
     /* background: red; */
@@ -38,14 +38,19 @@ const BarStyled = styled.nav`
   }
 `;
 
-const BarFiltering = () => {
+const BarFiltering = ({ useDataFiltering, dataFiltering }) => {
+  console.log(dataFiltering);
   return (
     <BarStyled>
       <div className="cards-flex">
-        <BarCard item="JavaScript"/>
-        <BarCard />
+        {dataFiltering.map((dataFilteri, index) => (
+          <BarCard item={dataFilteri} useDataFiltering={useDataFiltering} dataFiltering={dataFiltering} hoverBg="none" hoverC="none" key={index} click={false} />
+        ))}
+        {/* <BarCard /> */}
       </div>
-      <div className="text-clear">Clear</div>
+      <div className="text-clear" onClick={() => useDataFiltering([])}>
+        Clear
+      </div>
     </BarStyled>
   );
 };

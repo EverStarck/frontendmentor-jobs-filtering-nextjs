@@ -8,10 +8,14 @@ const CardStyle = styled.section`
   background: var(--Light-Grayish-Cyan-BG);
   /* margin-right: 15px; */
   .card-text {
-    font-size: clamp(12px,2vw,14px);
-    padding: clamp(5px,2vw,10px);
+    font-size: clamp(12px, 2vw, 14px);
+    padding: clamp(5px, 2vw, 10px);
     color: var(--MainCyan);
     font-weight: 700;
+    &:hover {
+      color: ${(props) => props.hoverC};
+      background-color: ${(props) => props.hoverBg};
+    }
   }
   .x-remove {
     display: ${(props) => props.display};
@@ -29,13 +33,49 @@ const CardStyle = styled.section`
   }
 `;
 
-const BarCard = ({ item, display="block", cursor="text" }) => {
+const BarCard = ({
+  item,
+  display = "block",
+  cursor = "text",
+  hoverC = "var(--Light-Grayish-Cyan-BG)",
+  hoverBg = "var(--MainCyan)",
+  click = true,
+  useDataFiltering,
+  dataFiltering,
+}) => {
+
+  // Add the item to State
+  const handeClick = () => {
+    // alert(item);
+    if (click) {
+      useDataFiltering([
+        ...dataFiltering,
+        item
+      ])
+    }
+  }
+
+
+  // Remove the item from the State
+  const removeItem = () => {
+    useDataFiltering(
+      dataFiltering.filter(word => word !== item)
+    );
+  }
+
   return (
     <>
-      <CardStyle display={display} cursor={cursor} item={item}>
+      <CardStyle
+        display={display}
+        cursor={cursor}
+        item={item}
+        hoverC={hoverC}
+        hoverBg={hoverBg}
+        click={click}
+      >
         {}
-        <div className="card-text">{item}</div>
-        <button className="x-remove"></button>
+        <div className="card-text" onClick={handeClick}>{item}</div>
+        <button className="x-remove" onClick={removeItem}></button>
       </CardStyle>
     </>
   );

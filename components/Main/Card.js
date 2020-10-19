@@ -87,7 +87,7 @@ const Hr = styled.hr`
   }
 `;
 
-const Card = ({ data }) => {
+const Card = ({ data,useDataFiltering,dataFiltering  }) => {
   const { languages, role, level } = data;
   return (
     <BigCard>
@@ -102,10 +102,11 @@ const Card = ({ data }) => {
       <Hr />
 
       <FilterList>
-        <BarCard item={role} display="none" cursor="pointer"/>
-        <BarCard item={level} display="none" cursor="pointer"/>
+        <BarCard item={role} display="none" cursor="pointer" useDataFiltering={useDataFiltering} dataFiltering={dataFiltering} />
+        <BarCard item={level} display="none" cursor="pointer" useDataFiltering={useDataFiltering} dataFiltering={dataFiltering} />
+
         {languages.map((language, index) => (
-          <BarCard language={language} item={language} key={index} display="none" cursor="pointer"/>
+          <BarCard language={language} item={language} key={index} display="none" cursor="pointer" useDataFiltering={useDataFiltering} dataFiltering={dataFiltering} />
         ))}
       </FilterList>
     </BigCard>

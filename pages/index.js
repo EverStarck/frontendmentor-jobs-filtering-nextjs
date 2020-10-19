@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import styled from "@emotion/styled";
 import Header from "../components/Header/Header";
@@ -38,6 +38,7 @@ const MainFrame = styled.div`
 export default function Home() {
   const datas = Data;
   // console.log(datas);
+  const [dataFiltering, useDataFiltering] = useState([]);
   return (
     <MainFrame>
       <Head>
@@ -51,13 +52,22 @@ export default function Home() {
 
       <Header />
       <div className="section">
-        <BarFiltering />
+        {dataFiltering.length === 0 ? null : (
+          <BarFiltering
+            dataFiltering={dataFiltering}
+            useDataFiltering={useDataFiltering}
+          />
+        )}
         {/* MAIN */}
         {datas.map((data) => (
-          <Card data={data} key={data.id} />
+          <Card
+            data={data}
+            key={data.id}
+            dataFiltering={dataFiltering}
+            useDataFiltering={useDataFiltering}
+          />
         ))}
       </div>
     </MainFrame>
   );
 }
-

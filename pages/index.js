@@ -52,12 +52,10 @@ export default function Home() {
 
       <Header />
       <div className="section">
-        {dataFiltering.length === 0 ? null : (
-          <BarFiltering
-            dataFiltering={dataFiltering}
-            useDataFiltering={useDataFiltering}
-          />
-        )}
+        <BarFiltering
+          dataFiltering={dataFiltering}
+          useDataFiltering={useDataFiltering}
+        />
         {/* MAIN */}
         {datas.map((data) => (
           <Card

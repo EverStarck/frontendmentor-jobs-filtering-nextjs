@@ -74,6 +74,9 @@ const FilterList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  @media screen and (max-width: 1200px) {
+    margin-left: 50px;
+  }
 `;
 
 const Hr = styled.hr`

@@ -9,6 +9,7 @@ const TextFrame = styled.div`
     margin: 0px;
     color: var(--Very-Dark-Grayish-Cyan);
     cursor: pointer;
+    transition: all .2s ease;
     &:hover {
       color: var(--MainCyan);
     }

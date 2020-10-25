@@ -12,6 +12,7 @@ const CardStyle = styled.section`
     padding: clamp(5px, 2vw, 10px);
     color: var(--MainCyan);
     font-weight: 700;
+    transition: all .5s ease;
     &:hover {
       color: ${(props) => props.hoverC};
       background-color: ${(props) => props.hoverBg};
@@ -27,6 +28,7 @@ const CardStyle = styled.section`
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    transition: all .4s ease;
     &:hover {
       background-color: var(--Very-Dark-Grayish-Cyan);
     }
@@ -46,11 +48,11 @@ const BarCard = ({
 
   // Add the item to State
   const handeClick = () => {
-    // alert(item);
-    if (click) {
+    // If the item don't are in the array, they be added
+    if (click && !dataFiltering.includes(item)) {
       useDataFiltering([
         ...dataFiltering,
-        item
+        item,
       ])
     }
   }

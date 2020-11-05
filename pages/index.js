@@ -28,6 +28,7 @@ const MainFrame = styled.div`
   .section {
     max-width: 80vw;
     margin: 0 auto;
+    padding-bottom: 20px;
     /* Mobile Responsive */
     @media screen and (max-width: 375px) {
       max-width: 90vw;
@@ -36,9 +37,13 @@ const MainFrame = styled.div`
 `;
 
 export default function Home() {
-  const datas = Data;
-  // console.log(datas);
+  // All the data from the json
+  const [datas] = useState(Data);
+  // The array of the bar filter
   const [dataFiltering, useDataFiltering] = useState([]);
+  // console.log(dataFiltering) //[ "Frontend", "JavaScript", "Senior" ]
+  // The data that return
+  let filteredData = [];
   return (
     <MainFrame>
       <Head>
@@ -56,15 +61,35 @@ export default function Home() {
           dataFiltering={dataFiltering}
           useDataFiltering={useDataFiltering}
         />
+
         {/* MAIN */}
-        {datas.map((data) => (
-          <Card
-            data={data}
-            key={data.id}
-            dataFiltering={dataFiltering}
-            useDataFiltering={useDataFiltering}
-          />
-        ))}
+
+        {datas.map((data) => {
+          //  console.log(data);
+          // The data in an array to compare //[ "Frontend", "Senior", "HTML", "CSS", "JavaScript" ]
+          filteredData = [
+            data.role,
+            data.level,
+            ...data.languages,
+            ...data.tools,
+          ];
+          // Return "Frontend" and every item of filteredData alone and then compare
+          filteredData.map((filteredItem) => filteredItem);
+          if (
+            dataFiltering.every((filteredItem) =>
+              filteredData.includes(filteredItem)
+            )
+          ) {
+            return (
+              <Card
+                data={data}
+                key={data.id}
+                dataFiltering={dataFiltering}
+                useDataFiltering={useDataFiltering}
+              />
+            );
+          }
+        })}
       </div>
     </MainFrame>
   );

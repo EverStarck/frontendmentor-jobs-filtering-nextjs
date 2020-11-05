@@ -48,6 +48,7 @@ const BarCard = ({
 
   // Add the item to State
   const handeClick = () => {
+    // alert(item);
     // If the item don't are in the array, they be added
     if (click && !dataFiltering.includes(item)) {
       useDataFiltering([
